@@ -12,6 +12,11 @@ class Solution {
     public ListNode oddEvenList(ListNode head) {
         return brutForce(head);
     }
+
+    /**
+        Time -> O(n)
+        Space -> O(1)
+     */
     public ListNode brutForce(ListNode head) {
         if (head == null) {
             return head;
