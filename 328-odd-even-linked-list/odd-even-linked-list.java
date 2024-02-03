@@ -14,6 +14,10 @@ class Solution {
         return optimalSolution(head);
     }
 
+    /**
+        Time -> O(n)
+        Space -> O(1)
+     */
     public ListNode optimalSolution(ListNode head) {
         if (head == null || head.next == null) {
             return head;
