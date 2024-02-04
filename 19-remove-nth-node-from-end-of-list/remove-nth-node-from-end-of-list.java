@@ -10,6 +10,10 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
+        return brutForce(head, n);
+    }
+
+    public ListNode brutForce(ListNode head, int n) {
         if (head == null || head.next == null) {
             return null;
         }
