@@ -10,6 +10,10 @@
  */
 class Solution {
     public ListNode deleteMiddle(ListNode head) {
+        return solution1(head);
+    }
+
+    public ListNode solution1(ListNode head) {
         int length = length(head);
         if (length == 1) {
             return null;
