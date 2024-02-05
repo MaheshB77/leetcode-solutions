@@ -10,7 +10,24 @@
  */
 class Solution {
     public ListNode deleteMiddle(ListNode head) {
-        return solution1(head);
+        // return solution1(head);
+        return solution2(head);
+    }
+
+    public ListNode solution2(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+        ListNode slow = head;
+        ListNode fast = head;
+        ListNode prev = slow;
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        prev.next = slow.next;
+        return head;
     }
 
     public ListNode solution1(ListNode head) {
