@@ -12,7 +12,44 @@
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         // return brutForce(headA, headB);
-        return solution1(headA, headB);
+        // return solution1(headA, headB);
+        return solution2(headA, headB);
+    }
+
+    public ListNode solution2(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+
+        ListNode temp1 = headA;
+        ListNode temp2 = headB;
+
+        ListNode head1 = headA;
+        ListNode head2 = headB;
+
+        while (temp1 != temp2) {
+            if (temp1 == null) {
+                temp1 = head2;
+            }
+            if (temp2 == null) {
+                temp2 = head1;
+            }
+            if (temp1 == temp2) {
+                return temp1;
+            }
+            
+            temp1 = temp1.next;
+            temp2 = temp2.next;
+        }
+
+        while (temp1 != null && temp2 != null) {
+            if (temp1 == temp2) {
+                return temp1;
+            }
+            temp1 = temp1.next;
+            temp2 = temp2.next;
+        }
+        return null;
     }
 
     /**
