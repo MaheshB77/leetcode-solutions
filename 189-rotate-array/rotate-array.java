@@ -2,9 +2,21 @@ class Solution {
     public void rotate(int[] nums, int k) {
         // solution1(nums, k);
         // solution2(nums, k);
-        solution3(nums, k);
+        // solution3(nums, k);
+        solution4(nums, k);
     }
 
+    public void solution4(int[] nums, int k) {
+        int len = nums.length;
+        reverse(nums, 0, len - 1);
+        reverse(nums, 0, (k % len) - 1);
+        reverse(nums, (k % len), nums.length-1);
+    }
+
+    /**
+        Time -> O(n)
+        Space -> O(n)
+     */
     public void solution3(int[] nums, int k) {
         int length = nums.length;
         int[] dup = new int[length];
@@ -16,6 +28,10 @@ class Solution {
         }
     }
 
+    /**
+        Time -> O(n)
+        Space -> O(n)
+     */
     public void solution2(int[] nums, int k) { 
         Map<Integer, Integer> map = new HashMap<>();
         int counter = k % nums.length;
@@ -49,5 +65,14 @@ class Solution {
             nums[0] = next;
             counter++;
         }
+    }
+
+    public int[] reverse(int[] nums, int start, int end) {
+        for (; start < end; start++, end--) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+        }
+        return nums;
     }
 }
