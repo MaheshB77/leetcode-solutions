@@ -1,11 +1,22 @@
 class Solution {
     public void rotate(int[] nums, int k) {
         // solution1(nums, k);
-        solution2(nums, k);
+        // solution2(nums, k);
+        solution3(nums, k);
     }
 
-    public void solution2(int[] nums, int k) {
-        // if (nums.length == 1 || nums.length == k) return;
+    public void solution3(int[] nums, int k) {
+        int length = nums.length;
+        int[] dup = new int[length];
+        for (int i = 0; i < length; i++) {
+            dup[(i+k) % length] = nums[i];
+        }
+        for (int i = 0; i < length; i++) {
+            nums[i] = dup[i];
+        }
+    }
+
+    public void solution2(int[] nums, int k) { 
         Map<Integer, Integer> map = new HashMap<>();
         int counter = k % nums.length;
         for (int i = 0; i < nums.length; i++) {
