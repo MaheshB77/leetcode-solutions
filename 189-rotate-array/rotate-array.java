@@ -6,6 +6,11 @@ class Solution {
         solution4(nums, k);
     }
 
+    /**
+        OPTIMAL SOLUTION (Not easy to come up with in 1st go)
+        Time -> O(n)
+        Space -> O(1)
+     */
     public void solution4(int[] nums, int k) {
         int len = nums.length;
         reverse(nums, 0, len - 1);
