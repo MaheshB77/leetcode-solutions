@@ -1,5 +1,13 @@
 class Solution {
     public int missingNumber(int[] nums) {
+        return brutForce(nums);
+    }
+
+    /**
+        Time -> O(n log n)
+        Space -> O(1)
+     */
+    public int brutForce(int[] nums) {
         Arrays.sort(nums);
         for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i+1] - nums[i] != 1) {
