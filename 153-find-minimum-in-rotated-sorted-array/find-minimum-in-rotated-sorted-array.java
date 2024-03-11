@@ -13,10 +13,7 @@ class Solution {
             int leftDiff = nums[low] - nums[mid];
             int rightDiff = nums[mid] - nums[high];
             boolean isLeft = false;
-            if (leftDiff > rightDiff) {
-                isLeft = true;
-            }
-            if (leftDiff < 0 && rightDiff < 0) {
+            if ((leftDiff > rightDiff) || (leftDiff < 0 && rightDiff < 0)) {
                 isLeft = true;
             }
             if (isLeft) {
